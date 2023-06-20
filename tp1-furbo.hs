@@ -46,20 +46,26 @@ nuevaValoracion :: Bebida -> Jugador -> Jugador
 nuevaValoracion (Bebida _ porcentajeAlteracion) (Jugador nomJug valoracionBase) = (Jugador nomJug (valoracionBase + (valoracionBase * porcentajeAlteracion)) )
 --despues se sigue, ahora paso
 
+equipoWin :: Equipo -> Equipo -> Bool
+equipoWin 
+
 --la libertadores !
 
 data EquipoLib = EquipoLib{
     nombreLib :: String,
     canVictLib :: Int,
     cantJugadoresLib :: [Jugador],
-    estilodt :: Estilo
+    dt :: Dt
 } deriving Show
 
-data Estilo = Estilo{
-    nombreEstilo :: String,
-    ayudin :: Float
-} deriving Show
+data Dt = Dt {
+    nombreDt :: String,
+    estilo :: Estilo
+}
+
+
+
+
 
 dtLib :: Estilo -> EquipoLib ->EquipoLib
-
-dtLib (Estilo nombreEstilo ayudin) (EquipoLib nombreLib canVictLib cantJugadoresLib estilodt) = (EquipoLib nombreLib canVictLib cantJugadoresLib dtLib)
+dtLib nuevoEstilo (EquipoLib nombreLib canVictLib cantJugadoresLib estilodt) = (EquipoLib nombreLib canVictLib cantJugadoresLib nuevoEstilo)
